@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+
+{% block contnent1 %}
+
+{% for blog in blogs.all %}
+    <h1>[ {{ blog.title }} ]</h1>
+    <hr style="border: 1px; border-color: maroon;">
+    <div class="container2" style="text-align: center;">
+    	<p>{{ blog.pub_date }}</p>
+    	<p>{{ blog.body }}</p>
+    </div>
+    <div>
+    	<a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'edit' pk=blog.pk %}#portfolio1">수정</a>
+    	<a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'remove' pk=blog.pk %}#contact">삭제</a>
+    </div>
+{% endfor %}    
+{% endblock %}
